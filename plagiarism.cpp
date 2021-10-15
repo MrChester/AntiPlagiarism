@@ -16,6 +16,7 @@ bool isSeparator(char symbol);
 void convertToLowercase(string &str);
 void convertToCharArray(string str, char charArr[N]);
 void splitIntoWords(string str, string words[N]);
+void unionsDelete(string words[N]);
 void printStringArr(string str[]);
 
 int main()
@@ -36,6 +37,7 @@ double antiPlagiarism (string text, string fragment)
 
   convertToLowercase(text);
   splitIntoWords(text, words);
+  unionsDelete(words);
 
   printStringArr(words);
 
@@ -79,6 +81,29 @@ bool isSeparator(char symbol)
 			return true;
 	}
 	return false;
+}
+
+void unionsDelete(string words[N])
+{
+	string unionsArr[NUMBER_UNIONS] = {"and", "as", "or", "then", "but", "if", "till", "how", "so", "because", "unless", "until", "although", "however", "whenever"};  
+	for (int i = 0; words[i] != "\0"; i++)
+	{
+    	for (int j = 0; j < NUMBER_UNIONS; j++)
+ 		{
+    		if (words[i] == unionsArr[j])
+    		{
+    			for (int k = i; words[k] != "\0"; k++)
+    			{
+    				words[k] = words[k + 1];
+    				i = 0;
+				}
+			}
+			else
+			{
+				continue;
+			}
+		}
+	}
 }
 
 void convertToLowercase(string &str)
