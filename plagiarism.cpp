@@ -4,6 +4,8 @@ using namespace std;
 
 double antiPlagiarism (string text, string fragment);
 
+int stringLength(string str);
+
 int main()
 {
   string text = "\0";
@@ -21,4 +23,11 @@ double antiPlagiarism (string text, string fragment)
   cout << "In progress.." << endl;
 
   return result;
+}
+
+int stringLength(string str)
+{
+  int i = 0;
+  while (str[i] != '\0') i++;
+  return i;
 }
