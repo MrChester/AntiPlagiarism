@@ -6,6 +6,8 @@ double antiPlagiarism (string text, string fragment);
 
 int stringLength(string str);
 
+void convertToCharArray(string str, char charArr[N]);
+
 int main()
 {
   string text = "\0";
@@ -23,6 +25,14 @@ double antiPlagiarism (string text, string fragment)
   cout << "In progress.." << endl;
 
   return result;
+}
+
+void convertToCharArray(string str, char charArr[N])
+{
+  for (int i = 0; i < stringLength(str); i++)
+  {
+    charArr[i] = str[i];
+  }
 }
 
 int stringLength(string str)
