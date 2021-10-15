@@ -4,6 +4,7 @@
 
 using namespace std;
 #define N 128
+#define NUMBER_UNIONS 15
 
 double antiPlagiarism (string text, string fragment);
 
