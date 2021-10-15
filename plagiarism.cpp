@@ -1,12 +1,16 @@
 #include <iostream>
 
 using namespace std;
+#define N 128
 
 double antiPlagiarism (string text, string fragment);
+
+int stringLength(string str);
 
 bool isUppercaseLetter(char symbol);
 
 void convertToLowercase(string &str);
+void convertToCharArray(string str, char charArr[N]);
 
 int main()
 {
@@ -49,4 +53,19 @@ bool isUppercaseLetter(char symbol)
 	if(symbol >= 65 && symbol <= 90)
 		return true;
 	return false;	
+}
+
+void convertToCharArray(string str, char charArr[N])
+{
+  for (int i = 0; i < stringLength(str); i++)
+  {
+    charArr[i] = str[i];
+  }
+}
+
+int stringLength(string str)
+{
+  int i = 0;
+  while (str[i] != '\0') i++;
+  return i;
 }
