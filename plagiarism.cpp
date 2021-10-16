@@ -23,8 +23,9 @@ void convertToCharArray(string str, char charArr[N]);
 void splitIntoWords(string str, string words[N]);
 void unionsDelete(string words[N]);
 void printStringArr(string str[]);
-int strLenghtText(string line[]);
+//int strLenghtText(string line[]);
 void createShinglesArray(string words[], string shinglesArray[], int lenghtString);
+void getStrCat(char dest[N], char src[N]);
 
 ///////////////////////////////////////////////////////////////
 unsigned int A; 
@@ -415,4 +416,14 @@ void createShinglesArray(string words[], string shinglesArray[])
   } 
 
   //printCharsArr(chars);
+}
+
+void getStrCat(char dest[N], char src[N])
+{
+  //int destLength = getCharArrayLength(dest);
+
+  for (int i = 0; src[i] != '\0'; i++)
+  {
+    //dest[destLength + i] = src[i];
+  }
 }
