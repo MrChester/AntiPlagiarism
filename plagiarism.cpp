@@ -10,7 +10,6 @@
 using namespace std;
 #define N 128
 #define NUMBER_UNIONS 15
-const string unionsArr[NUMBER_UNIONS] = {"and", "as", "or", "then", "but", "if", "till", "how", "so", "because", "unless", "until", "although", "however", "whenever"}; 
 
 double antiPlagiarism (string text, string fragment);
 
@@ -20,10 +19,10 @@ int getCharArrayLength(char str[]);
 bool isUppercaseLetter(char symbol);
 bool isSeparator(char symbol);
 
-void convertToLowercase(string &str);
+void convertToLowerCase(string &str);
 void convertToCharArray(string str, char charArr[N]);
 void splitIntoWords(string str, string words[N]);
-void unionsDelete(string words[N]);
+void deleteUnions(string words[N], string unions[N]);
 void printStringArr(string str[]);
 void createShingles(string words[], string shinglesArray[]);
 void getStrCat(char dest[N], char src[N]);
@@ -237,17 +236,27 @@ double antiPlagiarism (string text, string fragment)
     string str = text;
     string textArray[N] = {"\0"};
     string fragmentArray[N] = {"\0"};
-    string shinglesArray[] = {"\0"};
+    string textShinglesArray[N] = {"\0"};
+    string fragmentShinglesArray[N] = {"\0"};
+    string unionsArr[NUMBER_UNIONS] = {"and", "as", "or", "then", "but", "if", "till", "how", "so", "because", "unless", "until", "although", "however", "whenever"}; 
 
-    convertToLowercase(text);
+    convertToLowerCase(text);
+    convertToLowerCase(fragment);
     splitIntoWords(text, textArray);
-    unionsDelete(textArray);
-    createShingles(textArray, shinglesArray);
+    splitIntoWords(fragment, fragmentArray);
+    deleteUnions(textArray, unionsArr);
+    deleteUnions(fragmentArray, unionsArr);
+    createShingles(textArray, textShinglesArray);
+    createShingles(fragmentArray, fragmentShinglesArray);
 
-    cout << "Words :: Array" << endl;
     printStringArr(textArray);
-    cout << "Shingles :: Array" << endl;
-    printStringArr(shinglesArray);
+    printStringArr(fragmentArray);
+
+    cout << "Text :: Shingles" << endl;
+    printStringArr(textShinglesArray);
+    cout << "Fragment :: Shingles" << endl;
+    printStringArr(fragmentShinglesArray);
+
     return result;
 }
 
@@ -290,13 +299,13 @@ bool isSeparator(char symbol)
     return false;
 }
 
-void unionsDelete(string words[N])
+void deleteUnions(string words[N], string unions[N])
 {
     for (int i = 0; words[i] != "\0"; i++)
     {
         for (int j = 0; j < NUMBER_UNIONS; j++)
          {
-            if (words[i] == unionsArr[j])
+            if (words[i] == unions[j])
             {
                 for (int k = i; words[k] != "\0"; k++)
                 {
@@ -312,7 +321,7 @@ void unionsDelete(string words[N])
     }
 }
 
-void convertToLowercase(string &str)
+void convertToLowerCase(string &str)
 {
     for(int i = 0; str[i] != '\0'; i++)
     {
@@ -388,7 +397,7 @@ void createShingles(string wordsArr[], string shinglesArray[])
         
         if (counter == 2)
         {
-            cout << "dest: " << shingleBuffer << endl;
+            //cout << "dest: " << shingleBuffer << endl;
             shinglesArray[is] = shingleBuffer;
             is++;
         }
