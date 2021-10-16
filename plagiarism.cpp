@@ -8,8 +8,17 @@
 #include <stdlib.h>
 
 using namespace std;
+
+const char separatorArr[] = " .,!?;:-+{}()[]*@%$^&#`~_=<>/|'\"\\";
+const char END_OF_CHAR_ARRAY = '\0';
+const string END_OF_STRING = "\0";
+
 #define N 128
 #define NUMBER_UNIONS 15
+#define ASCII_LETTER_DIFFERENCE 32
+#define SHINGLES_AMOUNT 3
+#define ASCII_CAPITAL_A_CODE 65
+#define ASCII_CAPITAL_Z_CODE 90
 
 double antiPlagiarism (string text, string fragment);
 
@@ -26,7 +35,7 @@ void splitIntoWords(string str, string words[N]);
 void deleteUnions(string words[N], string unions[N]);
 void printStringArr(string str[]);
 void createShingles(string words[], string shinglesArray[]);
-void getStrCat(char dest[N], char src[N]);
+void getStrCat(char destinationCharArr[N], char sourceCharArr[N]);
 void convertToMD5Hash(string str[], string hashesArr[]);
 
 ///////////////////////MD5 Hash Vars///////////////////////////////
@@ -71,12 +80,12 @@ double antiPlagiarism (string text, string fragment)
 {
     double result = 0.0;
     string str = text;
-    string textArray[N] = {"\0"};
-    string fragmentArray[N] = {"\0"};
-    string textShinglesArray[N] = {"\0"};
-    string fragmentShinglesArray[N] = {"\0"};
-    string textHashesArray[N] = {"\0"};
-    string fragmentHashesArray[N] = {"\0"};
+    string textArray[N] = {END_OF_STRING};
+    string fragmentArray[N] = {END_OF_STRING};
+    string textShinglesArray[N] = {END_OF_STRING};
+    string fragmentShinglesArray[N] = {END_OF_STRING};
+    string textHashesArray[N] = {END_OF_STRING};
+    string fragmentHashesArray[N] = {END_OF_STRING};
     string unionsArr[NUMBER_UNIONS] = {"and", "as", "or", "then", "but", "if", "till", "how", "so", "because", "unless", "until", "although", "however", "whenever"}; 
 
     convertToLowerCase(text);
@@ -112,9 +121,9 @@ int calculateCoincidenceNumber(string text[], string fragment[])
 	double result = 0;
 	int coincidence = 0;
 	int totalShinglesCount = 0;
-	for (int i = 0; fragment[i] != "\0"; i++)
+	for (int i = 0; fragment[i] != END_OF_STRING; i++)
 	{
-		for (int j = 0; text[j] != "\0"; j++)
+		for (int j = 0; text[j] != END_OF_STRING; j++)
 		{
 			if (fragment[i] == text[j])
 			{
@@ -128,23 +137,23 @@ int calculateCoincidenceNumber(string text[], string fragment[])
 
 void splitIntoWords(string str, string wordsArr[N])
 {
-    char charArr[N] = {'\0'};
-    char word[N] = {'\0'};
+    char charArr[N] = {END_OF_CHAR_ARRAY};
+    char word[N] = {END_OF_CHAR_ARRAY};
     int i = 0;
     int j = 0;
     int k = 0;
 
     convertToCharArray(str, charArr);
 
-    for (i = 0; charArr[i] != '\0'; i++)
+    for (i = 0; charArr[i] != END_OF_CHAR_ARRAY; i++)
     {
         if (!isSeparator(charArr[i]))
         {
             word[j] = charArr[i];
             j++;
-            if (isSeparator(charArr[i+1]) || charArr[i+1] == '\0')
+            if (isSeparator(charArr[i+1]) || charArr[i+1] == END_OF_CHAR_ARRAY)
             {
-                word[j] = '\0';
+                word[j] = END_OF_CHAR_ARRAY;
                 wordsArr[k] = word;
                 k++;
                 j = 0;
@@ -155,9 +164,7 @@ void splitIntoWords(string str, string wordsArr[N])
 
 bool isSeparator(char symbol)
 {
-    char separatorArr[] = " .,!?;:-+{}()[]*@%$^&#`~_=<>/|'\"\\";
-
-    for (int i = 0; separatorArr[i] != '\0'; i++)
+    for (int i = 0; separatorArr[i] != END_OF_CHAR_ARRAY; i++)
     {
         if (separatorArr[i] == symbol)
             return true;
@@ -167,13 +174,13 @@ bool isSeparator(char symbol)
 
 void deleteUnions(string words[N], string unions[N])
 {
-    for (int i = 0; words[i] != "\0"; i++)
+    for (int i = 0; words[i] != END_OF_STRING; i++)
     {
         for (int j = 0; j < NUMBER_UNIONS; j++)
          {
             if (words[i] == unions[j])
             {
-                for (int k = i; words[k] != "\0"; k++)
+                for (int k = i; words[k] != END_OF_STRING; k++)
                 {
                     words[k] = words[k + 1];
                     i = 0;
@@ -189,18 +196,18 @@ void deleteUnions(string words[N], string unions[N])
 
 void convertToLowerCase(string &str)
 {
-    for(int i = 0; str[i] != '\0'; i++)
+    for(int i = 0; str[i] != END_OF_CHAR_ARRAY; i++)
     {
         if (isUppercaseLetter(str[i]))
         {
-            str[i] += 32;
+            str[i] += ASCII_LETTER_DIFFERENCE;
         }
     }
 }
 
 bool isUppercaseLetter(char symbol)
 {
-    if(symbol >= 65 && symbol <= 90)
+    if(symbol >= ASCII_CAPITAL_A_CODE && symbol <= ASCII_CAPITAL_Z_CODE)
         return true;
     return false;	
 }
@@ -216,13 +223,13 @@ void convertToCharArray(string str, char charArr[N])
 int stringLength(string str)
 {
     int i = 0;
-    while (str[i] != '\0') i++;
+    while (str[i] != END_OF_CHAR_ARRAY) i++;
     return i;
 }
 
 void printStringArr(string str[])
 {
-    for (int i = 0; str[i] != "\0"; i++)
+    for (int i = 0; str[i] != END_OF_STRING; i++)
     {
         cout << "array [" << i << "] = " << str[i] << endl;
     }
@@ -232,16 +239,16 @@ void printStringArr(string str[])
 void createShingles(string wordsArr[], string shinglesArray[])
 {
     char shingleBuffer[N] = {0};
-    char wordsBuffer[N] = {'\0'};
+    char wordsBuffer[N] = {END_OF_CHAR_ARRAY};
     int counter = 0;
     int is = 0;
     int iw = 0;
 
-    for(int i = 0; wordsArr[i] != "\0"; i++)
+    for(int i = 0; wordsArr[i] != END_OF_STRING; i++)
     {
-        if (counter == 3)
+        if (counter == SHINGLES_AMOUNT)
         {
-            i -= 2;
+            i -= (SHINGLES_AMOUNT - 1);
             counter = 0;
             for(int i = 0; i < N; i++)
             {
@@ -254,16 +261,15 @@ void createShingles(string wordsArr[], string shinglesArray[])
             wordsBuffer[i] = 0;
         }
 
-        for(int j = 0; wordsArr[i][j] != '\0'; j++)
+        for(int j = 0; wordsArr[i][j] != END_OF_CHAR_ARRAY; j++)
         {
             wordsBuffer[j] = wordsArr[i][j];
         }
 
         getStrCat(shingleBuffer, wordsBuffer);
         
-        if (counter == 2)
+        if (counter == (SHINGLES_AMOUNT - 1))
         {
-            //cout << "dest: " << shingleBuffer << endl;
             shinglesArray[is] = shingleBuffer;
             is++;
         }
@@ -274,19 +280,19 @@ void createShingles(string wordsArr[], string shinglesArray[])
 
 void convertToMD5Hash(string str[], string hashesArr[])
 {
-    for (int i = 0; str[i] != "\0"; i++)
+    for (int i = 0; str[i] != END_OF_STRING; i++)
     {
         hashesArr[i] = md5(str[i]);
     }
 }
 
-void getStrCat(char dest[N], char src[N])
+void getStrCat(char destinationCharArr[N], char sourceCharArr[N])
 {
-    int destLength = getCharArrayLength(dest);
+    int destLength = getCharArrayLength(destinationCharArr);
 
-    for (int i = 0; src[i] != '\0'; i++)
+    for (int i = 0; sourceCharArr[i] != END_OF_CHAR_ARRAY; i++)
     {
-        dest[destLength + i] = src[i];
+        destinationCharArr[destLength + i] = sourceCharArr[i];
     }
 }
 
@@ -294,7 +300,10 @@ int getCharArrayLength(char str[])
 {
     int i = 0;
 
-    while (str[i] != '\0') i++;
+    while (str[i] != END_OF_CHAR_ARRAY)
+    {
+        i++;
+    }
 
     return i;
 }
@@ -314,13 +323,17 @@ unsigned int shiftLeft(unsigned int x, unsigned int n)
 void addingLenght(vector<unsigned char>& buf, const unsigned long long len)
 {
     for (auto i = 7; i >= 0; i--)
+    {
         buf.push_back((unsigned char)((len >> (i * 8)) & 0xFF));
+    }
 }
 
 void addingNulls(vector<unsigned char>& buf)
 {
     do
+    {
         buf.push_back(0);
+    }
     while (buf.size() % 64 != 56);
 }
 
@@ -331,7 +344,9 @@ void initMDbuf()
     C = 0x98BADCFE;
     D = 0x10325476;
     for (auto i = 0; i < 64; i++)
+    {
         T[i] = (unsigned int)(pow(2, 32) * abs(sin(double(i + 1))));
+    }
 }
 
 void adding1byte(vector<unsigned char>& buf)
@@ -344,7 +359,8 @@ int conv512to32(vector<unsigned char>& buf, unsigned int*& words)
     auto wSize = buf.size();
     words = new unsigned int[wSize/4];
 
-    for (auto i = 0, j=0; i < wSize; i+=4, j=i/4) {
+    for (auto i = 0, j=0; i < wSize; i+=4, j=i/4)
+    {
         words[j] = 0;
         words[j] += (unsigned int)(buf[i]);
         words[j] += (unsigned int)(buf[i+1])<<8;
@@ -357,7 +373,8 @@ int conv512to32(vector<unsigned char>& buf, unsigned int*& words)
 
 void calcBlocks(unsigned int *buf, const int len)
 {
-    for(auto i = 0; i < len; i+=16) {
+    for(auto i = 0; i < len; i+=16)
+    {
         auto AA=A, BB=B, CC=C, DD=D;
 
         //ROUND I
@@ -456,7 +473,8 @@ string hex(unsigned int num)
 {
     stringstream stream;
 
-    for (auto i = 0; i < 4; i++) {
+    for (auto i = 0; i < 4; i++)
+    {
         stream << setfill('0') << std::setw(2) <<hex <<num%256;
         num/=256;
     }
@@ -470,7 +488,9 @@ string md5(const string msg)
 
     vector<unsigned char> buf(len);
     for (auto i = 0; i<len;i++)
+    {
         buf[i]=msg[i];
+    }
     
     len = _byteswap_uint64(len*8); 
 
@@ -478,7 +498,7 @@ string md5(const string msg)
     addingNulls(buf);
     addingLenght(buf,len);
     initMDbuf();
-    calcBlocks(blocks,conv512to32(buf,blocks));   
+    calcBlocks(blocks,conv512to32(buf,blocks));
 
     return hex(A)+hex(B)+hex(C)+hex(D);
 }
