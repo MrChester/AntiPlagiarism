@@ -21,7 +21,7 @@ void printStringArr(string str[]);
 
 int main()
 {
-  string text = ".(5A c) c d!!! I1 f G {}H i j K)";
+  string text = ".then(5A c) c if d!!! I1 or f G {}H i j K)";
   string fragment = "\0";
 
   antiPlagiarism(text, fragment);
@@ -38,9 +38,7 @@ double antiPlagiarism (string text, string fragment)
   convertToLowercase(text);
   splitIntoWords(text, words);
   unionsDelete(words);
-
   printStringArr(words);
-
   return result;
 }
 
