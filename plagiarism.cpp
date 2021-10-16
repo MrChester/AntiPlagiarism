@@ -15,7 +15,6 @@ const string unionsArr[NUMBER_UNIONS] = {"and", "as", "or", "then", "but", "if",
 double antiPlagiarism (string text, string fragment);
 
 int stringLength(string str);
-int strLenghtText(string line[]);
 int getCharArrayLength(char str[]);
 
 bool isUppercaseLetter(char symbol);
@@ -26,11 +25,11 @@ void convertToCharArray(string str, char charArr[N]);
 void splitIntoWords(string str, string words[N]);
 void unionsDelete(string words[N]);
 void printStringArr(string str[]);
-//int strLenghtText(string line[]);
 void createShingles(string words[], string shinglesArray[]);
 void getStrCat(char dest[N], char src[N]);
 
-///////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////// MD_5 Hash function ///////////////////////////////////////////////////////////////////////////////////////
+
 unsigned int A; 
 unsigned int B; 
 unsigned int C; 
@@ -243,7 +242,6 @@ double antiPlagiarism (string text, string fragment)
     convertToLowercase(text);
     splitIntoWords(text, textArray);
     unionsDelete(textArray);
-    int lenghtString = strLenghtText(textArray);
     createShingles(textArray, shinglesArray);
 
     cout << "Words :: Array" << endl;
@@ -345,16 +343,6 @@ int stringLength(string str)
     int i = 0;
     while (str[i] != '\0') i++;
     return i;
-}
-
-int strLenghtText(string line[])
-{
-    int temp = 0;
-    for (int i = 0; line[i] != "\0"; i++)
-    {
-        temp++;
-    }
-    return temp;
 }
 
 void printStringArr(string str[])
