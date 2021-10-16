@@ -399,7 +399,7 @@ void createShinglesArray(string words[], string shinglesArray[])
       src[j] = words[i][j];   
 	  //cout << "src: " << src << endl;  
     }
-    //getStrCat(dest, src);
+    getStrCat(dest, src);
     
     //cout << "dest: " << dest << endl;
     
@@ -420,10 +420,19 @@ void createShinglesArray(string words[], string shinglesArray[])
 
 void getStrCat(char dest[N], char src[N])
 {
-  //int destLength = getCharArrayLength(dest);
+  int destLength = getCharArrayLength(dest);
 
   for (int i = 0; src[i] != '\0'; i++)
   {
-    //dest[destLength + i] = src[i];
+    dest[destLength + i] = src[i];
   }
+}
+
+int getCharArrayLength(char str[])
+{
+  int i = 0;
+
+  while (str[i] != '\0') i++;
+
+  return i;
 }
