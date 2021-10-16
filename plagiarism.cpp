@@ -27,6 +27,7 @@ void deleteUnions(string words[N], string unions[N]);
 void printStringArr(string str[]);
 void createShingles(string words[], string shinglesArray[]);
 void getStrCat(char dest[N], char src[N]);
+void convertToMD5Hash(string str[], string hashesArr[]);
 
 /////////////////////////////////////////////////////////////// MD_5 Hash function ///////////////////////////////////////////////////////////////////////////////////////
 
@@ -239,6 +240,8 @@ double antiPlagiarism (string text, string fragment)
     string fragmentArray[N] = {"\0"};
     string textShinglesArray[N] = {"\0"};
     string fragmentShinglesArray[N] = {"\0"};
+    string textHashesArray[N] = {"\0"};
+    string fragmentHashesArray[N] = {"\0"};
     string unionsArr[NUMBER_UNIONS] = {"and", "as", "or", "then", "but", "if", "till", "how", "so", "because", "unless", "until", "although", "however", "whenever"}; 
 
     convertToLowerCase(text);
@@ -249,6 +252,8 @@ double antiPlagiarism (string text, string fragment)
     deleteUnions(fragmentArray, unionsArr);
     createShingles(textArray, textShinglesArray);
     createShingles(fragmentArray, fragmentShinglesArray);
+    convertToMD5Hash(textShinglesArray, textHashesArray);
+    convertToMD5Hash(fragmentShinglesArray, fragmentHashesArray);
 
     printStringArr(textArray);
     printStringArr(fragmentArray);
@@ -257,8 +262,12 @@ double antiPlagiarism (string text, string fragment)
     printStringArr(textShinglesArray);
     cout << "Fragment :: Shingles" << endl;
     printStringArr(fragmentShinglesArray);
+    cout << "Text :: Hashes" << endl;
+    printStringArr(textHashesArray);
+    cout << "Fragment :: Hashes" << endl;
+    printStringArr(fragmentHashesArray);
 
-    result = calculateCoincidenceNumber(textShinglesArray, fragmentShinglesArray);
+    result = calculateCoincidenceNumber(textHashesArray, fragmentHashesArray);
     cout << "Result = " << result << endl;
     return result;
 }
@@ -425,6 +434,14 @@ void createShingles(string wordsArr[], string shinglesArray[])
         }
         counter++;
         iw++;
+    }
+}
+
+void convertToMD5Hash(string str[], string hashesArr[])
+{
+    for (int i = 0; str[i] != "\0"; i++)
+    {
+        hashesArr[i] = md5(str[i]);
     }
 }
 
