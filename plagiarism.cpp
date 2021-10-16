@@ -365,22 +365,15 @@ void printStringArr(string str[])
   cout << endl;
 }
 
-void createShingles(string words[], string shinglesArray[])
+void createShingles(string wordsArr[], string shinglesArray[])
 {
-	char dest[N] = {0};
-  char src[N] = {'\0'};
+	char shingleBuffer[N] = {0};
+  char wordsBuffer[N] = {'\0'};
   int counter = 0;
   int is = 0;
   int iw = 0;
-  
-  /*
-  for(int i = 0; i < N; i++)
-  {
-	cout << "dest = " << dest[i] << endl;
-  }
-  */
 
-  for(int i = 0; words[i] != "\0"; i++)
+  for(int i = 0; wordsArr[i] != "\0"; i++)
   {
     if (counter == 3)
     {
@@ -388,40 +381,31 @@ void createShingles(string words[], string shinglesArray[])
       counter = 0;
       for(int i = 0; i < N; i++)
       {
-    	dest[i] = 0;
+    	shingleBuffer[i] = 0;
       }
-    
-      //getStrCpy(dest, src);
     }
 	
-	for(int i = 0; i < N; i++)
-      {
-    	src[i] = 0;
-      }
-    //string temp = words[i];
-    for(int j = 0; words[i][j] != '\0'; j++)
+    for(int i = 0; i < N; i++)
     {
-      //getStrCat(dest, words[i]);
-      src[j] = words[i][j];   
-	  //cout << "src: " << src << endl;  
+    	wordsBuffer[i] = 0;
     }
-    getStrCat(dest, src);
-    
-    //cout << "dest: " << dest << endl;
+
+    for(int j = 0; wordsArr[i][j] != '\0'; j++)
+    {
+      wordsBuffer[j] = wordsArr[i][j];
+    }
+
+    getStrCat(shingleBuffer, wordsBuffer);
     
     if (counter == 2)
     {
-    	cout << "dest: " << dest << endl;
-      shinglesArray[is] = dest;
+    	cout << "dest: " << shingleBuffer << endl;
+      shinglesArray[is] = shingleBuffer;
       is++;
-      
     }
-    
     counter++;
     iw++;
-  } 
-
-  //printCharsArr(chars);
+  }
 }
 
 void getStrCat(char dest[N], char src[N])
