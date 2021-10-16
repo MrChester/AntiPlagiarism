@@ -15,6 +15,7 @@ double antiPlagiarism (string text, string fragment);
 
 int stringLength(string str);
 int getCharArrayLength(char str[]);
+int calculateCoincidenceNumber(string text[], string fragment[]);
 
 bool isUppercaseLetter(char symbol);
 bool isSeparator(char symbol);
@@ -223,7 +224,7 @@ string md5(const string msg)
 int main()
 {
     string text = "Lorem is Ipsum is simply dummy then";
-    string fragment = "Lorem Ipsum is simply dummy Ipsum is simply";
+    string fragment = "Lorem is Ipsum ddd simply dummy then";
 
     antiPlagiarism(text, fragment);
 
@@ -257,7 +258,28 @@ double antiPlagiarism (string text, string fragment)
     cout << "Fragment :: Shingles" << endl;
     printStringArr(fragmentShinglesArray);
 
+    result = calculateCoincidenceNumber(textShinglesArray, fragmentShinglesArray);
+    cout << "Result = " << result << endl;
     return result;
+}
+
+int calculateCoincidenceNumber(string text[], string fragment[])
+{
+	double result = 0;
+	int coincidence = 0;
+	int totalShinglesCount = 0;
+	for (int i = 0; fragment[i] != "\0"; i++)
+	{
+		for (int j = 0; text[j] != "\0"; j++)
+		{
+			if (fragment[i] == text[j])
+			{
+				coincidence++;
+			}
+		}
+		totalShinglesCount++;
+	}
+	return coincidence * 100.0 / totalShinglesCount;
 }
 
 void splitIntoWords(string str, string wordsArr[N])
