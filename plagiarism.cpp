@@ -14,6 +14,8 @@ using namespace std;
 double antiPlagiarism (string text, string fragment);
 
 int stringLength(string str);
+int strLenghtText(string line[]);
+int getCharArrayLength(char str[]);
 
 bool isUppercaseLetter(char symbol);
 bool isSeparator(char symbol);
@@ -24,7 +26,7 @@ void splitIntoWords(string str, string words[N]);
 void unionsDelete(string words[N]);
 void printStringArr(string str[]);
 //int strLenghtText(string line[]);
-void createShinglesArray(string words[], string shinglesArray[], int lenghtString);
+void createShingles(string words[], string shinglesArray[]);
 void getStrCat(char dest[N], char src[N]);
 
 ///////////////////////////////////////////////////////////////
@@ -220,8 +222,8 @@ string md5(const string msg){
 
 int main()
 {
-  string text = "if.(5A c) c then d!!! I1 f G {}H i j K)";
-  string fragment = "\0";
+  string text = "Lorem Ipsum is simply dummy";
+  string fragment = "Lorem Ipsum is simply dummy Ipsum is simply";
 
   antiPlagiarism(text, fragment);
 
@@ -232,20 +234,24 @@ double antiPlagiarism (string text, string fragment)
 {
   double result = 0.0;
   string str = text;
-  string words[N] = {"\0"};
+  string textArray[N] = {"\0"};
+  string fragmentArray[N] = {"\0"};
   string shinglesArray[] = {"\0"};
 
   convertToLowercase(text);
-  splitIntoWords(text, words);
-  unionsDelete(words);
-  int lenghtString = strLenghtText(words);
-  createShinglesArray(words, shinglesArray, lenghtString);
+  splitIntoWords(text, textArray);
+  unionsDelete(textArray);
+  int lenghtString = strLenghtText(textArray);
+  createShingles(textArray, shinglesArray);
 
-  printStringArr(words);
+  cout << "Words :: Array" << endl;
+  printStringArr(textArray);
+  cout << "Shingles :: Array" << endl;
+  printStringArr(shinglesArray);
   return result;
 }
 
-void splitIntoWords(string str, string words[N])
+void splitIntoWords(string str, string wordsArr[N])
 {
   char charArr[N] = {'\0'};
   char word[N] = {'\0'};
@@ -264,7 +270,7 @@ void splitIntoWords(string str, string words[N])
       if (isSeparator(charArr[i+1]) || charArr[i+1] == '\0')
       {
         word[j] = '\0';
-        words[k] = word;
+        wordsArr[k] = word;
         k++;
         j = 0;
       }
@@ -340,15 +346,6 @@ int stringLength(string str)
   return i;
 }
 
-void printStringArr(string str[])
-{
-  for (int i = 0; str[i] != "\0"; i++)
-  {
-    cout << "words[" << i << "] = " << str[i] << endl;
-  }
-  cout << endl;
-}
-
 int strLenghtText(string line[])
 {
 	int temp = 0;
@@ -359,7 +356,16 @@ int strLenghtText(string line[])
 	return temp;
 }
 
-void createShinglesArray(string words[], string shinglesArray[])
+void printStringArr(string str[])
+{
+  for (int i = 0; str[i] != "\0"; i++)
+  {
+    cout << "array [" << i << "] = " << str[i] << endl;
+  }
+  cout << endl;
+}
+
+void createShingles(string words[], string shinglesArray[])
 {
 	char dest[N] = {0};
   char src[N] = {'\0'};
