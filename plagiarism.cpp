@@ -18,10 +18,12 @@ void convertToCharArray(string str, char charArr[N]);
 void splitIntoWords(string str, string words[N]);
 void unionsDelete(string words[N]);
 void printStringArr(string str[]);
+int strLenghtText(string line[]);
+void createShinglesArray(string words[], string shinglesArray[], int lenghtString);
 
 int main()
 {
-  string text = ".then(5A c) c if d!!! I1 or f G {}H i j K)";
+  string text = "if.(5A c) c then d!!! I1 f G {}H i j K)";
   string fragment = "\0";
 
   antiPlagiarism(text, fragment);
@@ -34,10 +36,14 @@ double antiPlagiarism (string text, string fragment)
   double result = 0.0;
   string str = text;
   string words[N] = {"\0"};
+  string shinglesArray[] = {"\0"};
 
   convertToLowercase(text);
   splitIntoWords(text, words);
   unionsDelete(words);
+  int lenghtString = strLenghtText(words);
+  createShinglesArray(words, shinglesArray, lenghtString);
+
   printStringArr(words);
   return result;
 }
@@ -144,4 +150,42 @@ void printStringArr(string str[])
     cout << "words[" << i << "] = " << str[i] << endl;
   }
   cout << endl;
+}
+
+int strLenghtText(string line[])
+{
+	int temp = 0;
+	for (int i = 0; line[i] != "\0"; i++)
+	{
+		temp++;
+	}
+	return temp;
+}
+
+void createShinglesArray(string words[], string shinglesArray[], int lenghtString)
+{
+	int k = 0;
+	int l = 0;
+	int temp = 0;
+	int numberOfShingles = 0;
+	for (int i = 0; i < lenghtString; i++)
+	{
+		for (int j = 0; words[i][j] != '\0'; j++)
+		{
+			shinglesArray[k][l] = words[i][j];
+			l++;
+		}
+		temp++;
+		if (temp % 3 == 0)
+		{
+			i -= 2;
+			k++;
+			l = 0;
+			numberOfShingles++;
+			if (numberOfShingles == lenghtString - 2)
+			{
+				break;
+			}
+		}
+	}
 }
