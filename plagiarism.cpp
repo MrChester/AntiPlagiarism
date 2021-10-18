@@ -69,8 +69,8 @@ string md5(const string msg);
 
 int main()
 {
-    string text = "Lorem Ipsum is simply dummy";
-    string fragment = "Lorem Ipsum is simply dummy";
+    string text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.";
+    string fragment = "Lorem Ipsum is simply dummy text of the printing and types.";
 
     antiPlagiarism(text, fragment);
 
@@ -101,9 +101,8 @@ double antiPlagiarism (string text, string fragment)
     convertToMD5Hash(fragmentShinglesArray, fragmentHashesArray);
 
     int totalShinglesCount = getShinglesAmount(fragmentShinglesArray);
-	int coincidencesAmount = calculateCoincidenceNumber(textHashesArray, fragmentHashesArray, totalShinglesCount);
+    int coincidencesAmount = calculateCoincidenceNumber(textHashesArray, fragmentHashesArray, totalShinglesCount);
     result = coincidencesAmount * 100.0 / totalShinglesCount;
-    cout << result;
 
     return result;
 }
@@ -114,21 +113,20 @@ int calculateCoincidenceNumber(string text[], string fragment[], int totalShingl
     int k = 0;
     for (int i = 0; text[i + totalShinglesCount - 1] != END_OF_STRING; i++)
     {
-    	k = i;
-    	int temp = 0;
-    	for (int j = 0; fragment[j] != END_OF_STRING; j++)
-    	{
-    		if (fragment[j] == text[k])
-    		{
-    			temp++;
-    		}
-    		cout << "Fragment: " << fragment[j] << " " << " text: " << text[k] << endl;
-			k++;
-		}
-		if (coincidence < temp)
-		{
-			coincidence = temp;
-		}	
+        k = i;
+        int temp = 0;
+        for (int j = 0; fragment[j] != END_OF_STRING; j++)
+        {
+            if (fragment[j] == text[k])
+            {
+                temp++;
+            }
+            k++;
+        }
+        if (coincidence < temp)
+        {
+            coincidence = temp;
+        }
     }
     return coincidence;
 }
