@@ -24,7 +24,7 @@ double antiPlagiarism (string text, string fragment);
 
 int stringLength(string str);
 int getCharArrayLength(char str[]);
-int calculateCoincidenceNumber(string text[], string fragment[]);
+int calculateCoincidenceNumber(string text[], string fragment[], int totalShinglesCount);
 int getShinglesAmount(string shinglesArray[]);
 
 bool isUppercaseLetter(char symbol);
@@ -69,8 +69,8 @@ string md5(const string msg);
 
 int main()
 {
-    string text = "Lorem Ipsum is simply dummy";
-    string fragment = "Lorem Ipsum is simply dummy";
+    string text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.";
+    string fragment = "Lorem Ipsum is simply dummy text of the printing and types.";
 
     antiPlagiarism(text, fragment);
 
@@ -100,25 +100,32 @@ double antiPlagiarism (string text, string fragment)
     convertToMD5Hash(textShinglesArray, textHashesArray);
     convertToMD5Hash(fragmentShinglesArray, fragmentHashesArray);
 
-    int coincidencesAmount = calculateCoincidenceNumber(textHashesArray, fragmentHashesArray);
-    int totalShinglesCount  = getShinglesAmount(fragmentShinglesArray);
+    int totalShinglesCount = getShinglesAmount(fragmentShinglesArray);
+    int coincidencesAmount = calculateCoincidenceNumber(textHashesArray, fragmentHashesArray, totalShinglesCount);
     result = coincidencesAmount * 100.0 / totalShinglesCount;
 
     return result;
 }
 
-int calculateCoincidenceNumber(string text[], string fragment[])
+int calculateCoincidenceNumber(string text[], string fragment[], int totalShinglesCount)
 {
     int coincidence = 0;
-
-    for (int i = 0; fragment[i] != END_OF_STRING; i++)
+    int k = 0;
+    for (int i = 0; text[i + totalShinglesCount - 1] != END_OF_STRING; i++)
     {
-        for (int j = 0; text[j] != END_OF_STRING; j++)
+        k = i;
+        int temp = 0;
+        for (int j = 0; fragment[j] != END_OF_STRING; j++)
         {
-            if (fragment[i] == text[j])
+            if (fragment[j] == text[k])
             {
-                coincidence++;
+                temp++;
             }
+            k++;
+        }
+        if (coincidence < temp)
+        {
+            coincidence = temp;
         }
     }
     return coincidence;
