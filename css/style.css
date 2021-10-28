@@ -189,6 +189,15 @@ textarea:-ms-input-placeholder {
     color: #ffffff;
 }
 
+.original-text__controls__button:hover,
+.fragment-text__controls__button:hover{
+    background-color: #54C755;
+}
+.original-text__controls__button:active,
+.fragment-text__controls__button:active{
+    background-color: #034E04; 
+}
+
 .original-text__controls__button{
     height: 61.27px;
     margin-bottom: 16.73px;
@@ -233,7 +242,8 @@ textarea:-ms-input-placeholder {
 }
 
 .footer-logo__link{
-    margin-right: 6.98px;
+    margin-right: 0px;
+    padding-right: 6.98px;
 }
 
 .footer-logo__text{
