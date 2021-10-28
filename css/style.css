@@ -51,14 +51,27 @@
 }
 
 html, body {
+    height: 100%;
     margin: 0px;
     padding: 0px;
     background: linear-gradient(90deg, #FAEFCC 0%, #FAB397 100%), #4E54C8;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+fieldset {
     margin: 0;
     padding: 0;
+}
+
+.wrapper{
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .header {
@@ -86,37 +99,18 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0 auto;
 }
 
-main button {
-    font-family: 'Exo 2', sans-serif;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 28px;
-    line-height: 34px;
-    text-align: center;
-    color:#F4F4F4;
-}
-main .buttonOriginal
-{
-    width: 250px;
-    height: 61.27px;
-    left: 135px;
-    top: 344px;
-
-    background: #008F02;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 10px;
+.main{
+    flex: 1 1 auto;
 }
 
-main .buttonCheck
-{
-    width: 250px;
-    height: 60px;
-    left: 136px;
-    top: 590px;
-    
-    background: #008F02;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 10px;
+.original-text-fieldset,
+.fragment-text-fieldset{
+    display: flex;
+}
+
+.original-text__controls{
+    display: flex;
+    flex-direction: column;
 }
 
 main img
@@ -127,36 +121,69 @@ main img
     top: 422px;
 }
 
-main textarea {
+.form__controls{
+    margin-right: 26px;
+}
+
+.original-text-fieldset{
+    margin-bottom: 16.21px;
+}
+.original-text-fieldset__textarea textarea{
+    padding: 13.93px 32px;
+}
+
+.fragment-text-fieldset__textarea textarea{
+    padding: 8.36px 32px;
+}
+
+.original-text-fieldset__textarea textarea,
+.fragment-text-fieldset__textarea textarea{
+    width: 904px;
     resize: none;
     background: #F4F4F4;
     border: 2px solid #191F82;
-    box-sizing: border-box;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
-
-    padding-top: 13.93px;
-    padding-left: 32px;
     font-family: 'Exo 2', sans-serif;
     font-style: normal;
     font-weight: normal;
     font-size: 18px;
     line-height: 22px;
-
     color: #B1AFAF;
 }
-main .text {
-    width: 904px;
-    height: 220px;
-    left: 411px;
-    top: 344px;
+
+.original-text__controls__button,
+.fragment-text__controls__button{
+    width: 250px;
+    background: #008F02;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    font-family: 'Exo2', Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 33.6px;
+    color: #ffffff;
 }
 
-main .fragment {
-    width: 904px;
+.original-text__controls__button{
+    height: 61.27px;
+    margin-bottom: 16.73px;
+}
+
+.fragment-text__controls__button{
     height: 60px;
-    left: 411px;
-    top: 590px;
+}
+
+.original-text-fieldset__textarea textarea {
+    height: 220px;
+}
+
+.fragment-text-fieldset__textarea textarea{
+    height: 60px;
+}
+
+.plagiarism-section__form{
+    margin-bottom: 120px;
 }
 
 .footer .container,
