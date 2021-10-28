@@ -61,11 +61,12 @@ h1, h2, h3, h4, h5, h6 {
     padding: 0;
 }
 
-header {
+.header {
     text-align: center;
+    margin-bottom: 130px;
 }
 
-.main-heading{
+.header-title{
     margin-bottom: 30px;
     font-family: 'Exo2', Arial, Helvetica, sans-serif;
     font-size: 90px;
@@ -73,7 +74,7 @@ header {
     font-weight: 800;
 }
 
-h2 {
+.header-subtitle {
     font-family: 'Exo2', Arial, Helvetica, sans-serif;
     font-size: 50px;
     line-height: 60px;
