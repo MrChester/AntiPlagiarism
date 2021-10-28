@@ -81,6 +81,11 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 700;
 }
 
+.container{
+    max-width: 1180px;
+    margin: 0 auto;
+}
+
 main button {
     font-family: 'Exo 2', sans-serif;
     font-style: normal;
@@ -154,63 +159,53 @@ main .fragment {
     top: 590px;
 }
 
-footer
-{
-    width: 1180px;
-    height: 84px;
-    left: 135px;
-    top: 770px;
+.footer .container,
+.footer-logo,
+.socials__list{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 
+.footer .container
+{
+    /* display: flex;
+    align-items: center;
+    justify-content: space-between; */
+    height: 84px;
+    padding-left: 34px;
+    padding-right: 46px;
     background: #FFFFFF;
     border: 2px solid #191F82;
     box-sizing: border-box;
     border-radius: 10px;
 }
 
-footer .labelDev
-{
-    left: 11.74%;
-    right: 86.4%;
-    top: 88.16%;
-    bottom: 8.29%;
-
-    background: #008F02;
+.footer-logo__link{
+    margin-right: 6.98px;
 }
 
-footer .nickname
-{
-    width: 180px;
-    left: 514px;
-    top: 25.17px;
-  
-    font-family:#5C5C5C;
-    font-style: normal;
-    font-weight: bold;
+.footer-logo__text{
+    margin-top: 5px;
+    font-family: 'Exo2', Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    color: #008F02;
+}
+
+.copyrights{
+    font-family: 'Exo2', Arial, Helvetica, sans-serif;
+    font-weight: 700;
     font-size: 24px;
-    line-height: 29px;
-    display: flex;
-    align-items: center;
-    text-align: center;
+    line-height: 28.8px;
+    color: #5C5C5C;
 }
 
-footer li
-{
-    top: 20.15px;
-    bottom: 23.85px;
-    list-style-type: none;
+.socials{
+    min-width: 170px;
+    max-width: 170px;
 }
 
-footer .gitHub
-{
-    left: 964px;
-}
-
-footer .vk
-{
-    left: 1029px;
-}
-
-footer .facebook
-{
-    left: 1094px;
+.socials__item{
+    width: 40px;
+    height: 40px;
 }
