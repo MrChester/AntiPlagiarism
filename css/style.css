@@ -1,42 +1,83 @@
-html
-{
-    position: absolute;
+@font-face {
+	font-family: 'Exo2';
+	src: url('../asstes/fonts/exo2/Exo2-Regular.eot');
+	src: local('regular'),
+        url("../assets/fonts/exo2/Exo2-Regular.eot?#iefix") format("embedded-opentype"),
+        url('../asstes/fonts/exo2/Exo2-Regular.otf') format('opentype'),
+        url('../asstes/fonts/exo2/Exo2-Regular.woff2') format('woff2'),
+        url('../asstes/fonts/exo2/Exo2-Regular.ttf') format('truetype'),
+        url('../asstes/fonts/exo2/Exo2-Regular.svg') format('svg');
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Exo2';
+	src: url('../asstes/fonts/exo2/Exo2-Medium.eot');
+	src: local('medium'),
+        url("../assets/fonts/exo2/Exo2-Medium.eot?#iefix") format("embedded-opentype"),
+        url('../asstes/fonts/exo2/Exo2-Medium.otf') format('opentype'),
+        url('../asstes/fonts/exo2/Exo2-Medium.woff2') format('woff2'),
+        url('../asstes/fonts/exo2/Exo2-Medium.ttf') format('truetype'),
+        url('../asstes/fonts/exo2/Exo2-Medium.svg') format('svg');
+	font-weight: 500;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Exo2';
+	src: url('../assets/fonts/exo2/Exo2-Bold.eot');
+	src: local('bold'),
+        url("../assets/fonts/exo2/Exo2-Bold.eot?#iefix") format("embedded-opentype"),
+        url('../asstes/fonts/exo2/Exo2-Bold.otf') format('opentype'),
+        url('../assets/fonts/exo2/Exo2-Bold.woff2') format('woff2'),
+        url('../assets/fonts/exo2/Exo2-Bold.ttf') format('truetype'),
+        url('../assets/fonts/exo2/Exo2-Bold.svg') format('svg');
+	font-weight: 700;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Exo2';
+	src: url('../assets/fonts/exo2/Exo2-ExtraBold.eot');
+	src: local('extrabold'),
+        url("../assets/fonts/exo2/Exo2-ExtraBold.eot?#iefix") format("embedded-opentype"),
+        url('../asstes/fonts/exo2/Exo2-ExtraBold.otf') format('opentype'),
+        url('../assets/fonts/exo2/Exo2-ExtraBold.woff2') format('woff2'),
+        url('../assets/fonts/exo2/Exo2-ExtraBold.ttf') format('truetype'),
+        url('../assets/fonts/exo2/Exo2-ExtraBold.svg') format('svg');
+	font-weight: 800;
+	font-style: normal;
+}
+
+html, body {
     margin: 0px;
     padding: 0px;
-    width: 1440px;
-    height: 900px;
-    left: 0px;
-    top: 0px;
     background: linear-gradient(90deg, #FAEFCC 0%, #FAB397 100%), #4E54C8;
 }
 
-header h1, h2{
-    position: absolute;
+h1, h2, h3, h4, h5, h6 {
     margin: 0;
-    /* border: solid 1px; */
-    font-family: 'Exo 2', sans-serif;
-    font-style: normal;
+    padding: 0;
+}
+
+header {
     text-align: center;
 }
 
-h1 {
-    left: 597px;
-    top: 30px;
-
-    font-weight: 800;
+.main-heading{
+    margin-bottom: 30px;
+    font-family: 'Exo2', Arial, Helvetica, sans-serif;
     font-size: 90px;
     line-height: 108px;
+    font-weight: 800;
 }
 
 h2 {
-    width: 1028px;
-    height: 54px;
-    left: 244px;
-    top: 160px;
-
-    font-weight: bold;
+    font-family: 'Exo2', Arial, Helvetica, sans-serif;
     font-size: 50px;
     line-height: 60px;
+    font-weight: 700;
 }
 
 main button {
