@@ -1,0 +1,182 @@
+html
+{
+    position: absolute;
+    margin: 0px;
+    padding: 0px;
+    width: 1440px;
+    height: 900px;
+    left: 0px;
+    top: 0px;
+    background: linear-gradient(90deg, #FAEFCC 0%, #FAB397 100%), #4E54C8;
+}
+
+header h1, h2{
+    position: absolute;
+    margin: 0;
+    /* border: solid 1px; */
+    font-family: 'Exo 2', sans-serif;
+    font-style: normal;
+    text-align: center;
+}
+
+h1 {
+    left: 597px;
+    top: 30px;
+
+    font-weight: 800;
+    font-size: 90px;
+    line-height: 108px;
+}
+
+h2 {
+    width: 1028px;
+    height: 54px;
+    left: 244px;
+    top: 160px;
+
+    font-weight: bold;
+    font-size: 50px;
+    line-height: 60px;
+}
+
+main button {
+    font-family: 'Exo 2', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 28px;
+    line-height: 34px;
+    text-align: center;
+    color:#F4F4F4;
+}
+main .buttonOriginal
+{
+    position: absolute;
+    width: 250px;
+    height: 61.27px;
+    left: 135px;
+    top: 344px;
+
+    background: #008F02;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+}
+
+main .buttonCheck
+{
+    position: absolute;
+    width: 250px;
+    height: 60px;
+    left: 136px;
+    top: 590px;
+    
+    background: #008F02;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+}
+
+main img
+{
+    position: absolute;
+    width: 250px;
+    height: 151.79px;
+    left: 134px;
+    top: 422px;
+}
+
+main textarea {
+    position: absolute;
+    resize: none;
+    background: #F4F4F4;
+    border: 2px solid #191F82;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+
+    padding-top: 13.93px;
+    padding-left: 32px;
+    font-family: 'Exo 2', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+
+    color: #B1AFAF;
+}
+main .text {
+    width: 904px;
+    height: 220px;
+    left: 411px;
+    top: 344px;
+}
+
+main .fragment {
+    width: 904px;
+    height: 60px;
+    left: 411px;
+    top: 590px;
+}
+
+footer
+{
+    position: absolute;
+    width: 1180px;
+    height: 84px;
+    left: 135px;
+    top: 770px;
+
+    background: #FFFFFF;
+    border: 2px solid #191F82;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+
+footer .labelDev
+{
+    position: absolute;
+    left: 11.74%;
+    right: 86.4%;
+    top: 88.16%;
+    bottom: 8.29%;
+
+    background: #008F02;
+}
+
+footer .nickname
+{
+    position: absolute;
+    width: 180px;
+    left: 514px;
+    top: 25.17px;
+  
+    font-family:#5C5C5C;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 29px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+footer li
+{
+    position: absolute;
+    top: 20.15px;
+    bottom: 23.85px;
+    list-style-type: none;
+}
+
+footer .gitHub
+{
+    left: 964px;
+}
+
+footer .vk
+{
+    left: 1029px;
+}
+
+footer .facebook
+{
+    left: 1094px;
+}
