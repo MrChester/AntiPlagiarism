@@ -55,6 +55,7 @@ html, body {
     margin: 0px;
     padding: 0px;
     background: linear-gradient(90deg, #FAEFCC 0%, #FAB397 100%), #4E54C8;
+    box-sizing: border-box;
 }
 
 h1,
@@ -66,6 +67,20 @@ h6,
 fieldset {
     margin: 0;
     padding: 0;
+}
+
+
+textarea::-webkit-input-placeholder {
+    color: #B1AFAF;
+}
+textarea:-moz-placeholder {
+    color: #B1AFAF;
+}
+textarea::-moz-placeholder {
+    color: #B1AFAF;
+}
+textarea:-ms-input-placeholder {
+    color: #B1AFAF;
 }
 
 .wrapper{
@@ -113,14 +128,6 @@ fieldset {
     flex-direction: column;
 }
 
-main img
-{
-    width: 250px;
-    height: 151.79px;
-    left: 134px;
-    top: 422px;
-}
-
 .form__controls{
     margin-right: 26px;
 }
@@ -153,8 +160,13 @@ main img
 }
 
 .original-text__controls__button,
-.fragment-text__controls__button{
+.fragment-text__controls__button,
+.brain_img {
     width: 250px;
+}
+
+.original-text__controls__button,
+.fragment-text__controls__button{
     background: #008F02;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
@@ -168,6 +180,10 @@ main img
 .original-text__controls__button{
     height: 61.27px;
     margin-bottom: 16.73px;
+}
+
+.brain_img{
+    height: 151.79px;
 }
 
 .fragment-text__controls__button{
@@ -196,15 +212,11 @@ main img
 
 .footer .container
 {
-    /* display: flex;
-    align-items: center;
-    justify-content: space-between; */
     height: 84px;
     padding-left: 34px;
     padding-right: 46px;
     background: #FFFFFF;
     border: 2px solid #191F82;
-    box-sizing: border-box;
     border-radius: 10px;
 }
 
