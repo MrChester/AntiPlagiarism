@@ -2,6 +2,7 @@
 <html lang="ru">
     <head>
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
         <title>AntiPlagiarism</title>
         <link href="css/_normalize.css" rel="stylesheet">
         <link href="css/_zeroing.css" rel="stylesheet">
@@ -20,20 +21,22 @@
                     <div class="container">
                         <form action="#" class="plagiarism-section__form">
                             <fieldset class="original-text-fieldset">
-                                <div class="original-text__controls">
+                                <div class="original-text__controls form__controls">
                                     <button class="original-text__controls__button" class="buttonOriginal">Original</button>
-                                    <img class="original-text__controls__img" src="assets/images/form-section/main.png" alt="brain">
+                                    <div class="brain__img">
+                                        <img class="img--brain" src="assets/images/form-section/main.png" alt="brain">
+                                    </div>
                                 </div>
                                 <div class="original-text-fieldset__textarea">
-                                    <textarea>Original text</textarea>
+                                    <textarea placeholder="Original text"></textarea>
                                 </div>
                             </fieldset>
                             <fieldset class="fragment-text-fieldset">
-                                <div class="fragment-text__controls">
+                                <div class="fragment-text__controls form__controls">
                                     <button class="fragment-text__controls__button">Check</button>
                                 </div>
                                 <div class="fragment-text-fieldset__textarea">
-                                    <textarea>Input text... textarea 2 rows</textarea>
+                                    <textarea placeholder="Input text... textarea 2 rows"></textarea>
                                 </div>
                             </fieldset>
                         </form>
@@ -42,31 +45,33 @@
             </main>
             <footer class="footer">
                 <div class="container">
-                    <div class="footer-logo">
-                        <a class="footer-logo__link" href="#">
-                            <img class="footer-logo__img" src="assets/images/icons/incubator-main.png" alt="Incubator">
-                            INCUBATOR
-                        </a>
-                    </div>
-                    <div class="copyrights">Nickname, 2021</div>
-                    <div class="socials">
-                        <ul class="socials__list">
-                            <li class="socials__item">
-                                <a class="socials__link" href="#">
-                                    <img class="socials__icon--github" src="assets/images/socials/github.png" alt="github">
-                                </a>
-                            </li>
-                            <li class="socials__item">
-                                <a class="socials__link" href="#">
-                                    <img class="socials__icon--vk" src="assets/images/socials/vk.png" alt="vk">
-                                </a>
-                            </li>
-                            <li class="socials__item">
-                                <a class="socials__link" href="#">
-                                    <img class="socials__icon--fb" src="assets/images/socials/facebook.png" alt="facebook">
-                                </a>
-                            </li>
-                        </ul>
+                    <div class="footer__wrapper">
+                        <div class="footer-logo">
+                            <a class="footer-logo__link" href="#">
+                                <img class="footer-logo__img" src="assets/images/icons/incubator-main.png" alt="Incubator">
+                            </a>
+                            <div class="footer-logo__text">INCUBATOR</div>
+                        </div>
+                        <div class="copyrights">Nickname, 2021</div>
+                        <div class="socials">
+                            <ul class="socials__list">
+                                <li class="socials__item">
+                                    <a class="socials__link" href="#">
+                                        <img class="socials__icon--github" src="assets/images/socials/github.png" alt="github">
+                                    </a>
+                                </li>
+                                <li class="socials__item">
+                                    <a class="socials__link" href="#">
+                                        <img class="socials__icon--vk" src="assets/images/socials/vk.png" alt="vk">
+                                    </a>
+                                </li>
+                                <li class="socials__item">
+                                    <a class="socials__link" href="#">
+                                        <img class="socials__icon--fb" src="assets/images/socials/facebook.png" alt="facebook">
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </footer>
