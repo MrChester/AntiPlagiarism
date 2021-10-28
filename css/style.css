@@ -69,6 +69,10 @@ fieldset {
     padding: 0;
 }
 
+textarea{
+    resize: none;
+}
+
 
 textarea::-webkit-input-placeholder {
     color: #B1AFAF;
@@ -110,8 +114,9 @@ textarea:-ms-input-placeholder {
 }
 
 .container{
-    max-width: 1180px;
+    max-width: 1200px;
     margin: 0 auto;
+    padding: 0 10px;
 }
 
 .main{
@@ -129,6 +134,8 @@ textarea:-ms-input-placeholder {
 }
 
 .form__controls{
+    min-width: 250px;
+    max-width: 250px;
     margin-right: 26px;
 }
 
@@ -144,9 +151,14 @@ textarea:-ms-input-placeholder {
 }
 
 .original-text-fieldset__textarea textarea,
+.fragment-text-fieldset__textarea textarea,
+.original-text-fieldset__textarea,
+.fragment-text-fieldset__textarea{
+    width: 100%;
+}
+
+.original-text-fieldset__textarea textarea,
 .fragment-text-fieldset__textarea textarea{
-    width: 904px;
-    resize: none;
     background: #F4F4F4;
     border: 2px solid #191F82;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -162,7 +174,7 @@ textarea:-ms-input-placeholder {
 .original-text__controls__button,
 .fragment-text__controls__button,
 .brain_img {
-    width: 250px;
+    width: 100%;
 }
 
 .original-text__controls__button,
@@ -202,7 +214,7 @@ textarea:-ms-input-placeholder {
     margin-bottom: 120px;
 }
 
-.footer .container,
+.footer__wrapper,
 .footer-logo,
 .socials__list{
     display: flex;
@@ -210,7 +222,7 @@ textarea:-ms-input-placeholder {
     justify-content: space-between;
 }
 
-.footer .container
+.footer__wrapper
 {
     height: 84px;
     padding-left: 34px;
