@@ -52,6 +52,7 @@
 
 html, body {
     height: 100%;
+    width: 100%;
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
@@ -95,6 +96,10 @@ textarea::-moz-placeholder {
 }
 textarea:-ms-input-placeholder {
     color: #B1AFAF;
+}
+
+.wrapper{
+    position: relative;
 }
 
 .header {
