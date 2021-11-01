@@ -492,7 +492,7 @@ string md5(const string msg)
         buf[i]=msg[i];
     }
     
-    len = _byteswap_uint64(len*8); 
+    len = __bswap_64(len*8); 
 
     adding1byte(buf);
     addingNulls(buf);
