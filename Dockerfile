@@ -25,7 +25,7 @@ COPY getdb.cpp /var/www/cgi-bin/
 COPY getdb.h /var/www/cgi-bin/
 COPY plagiarism.cpp /var/www/cgi-bin/
 
-WORKDIR /var/www/cgi-bin/
+WORKDIR /var/www/cgi-bin
 RUN make
 RUN chmod 755 script.cgi
 RUN chmod 755 text.cgi
