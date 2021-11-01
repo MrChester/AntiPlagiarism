@@ -6,6 +6,7 @@
 #include <sstream>
 #include <vector>
 #include <stdlib.h>
+#include <stdio.h>
 
 using namespace std;
 
@@ -66,16 +67,6 @@ string hex(unsigned int num);
 string md5(const string msg);
 
 ///////////////////////MD5 Hash End Vars Block//////////////////////
-
-int main()
-{
-    string text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.";
-    string fragment = "Lorem Ipsum is simply dummy text of the printing and types.";
-
-    antiPlagiarism(text, fragment);
-
-    return 0;
-}
 
 double antiPlagiarism (string text, string fragment)
 {

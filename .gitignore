@@ -3,3 +3,8 @@
 
 // exe files
 *.exe
+
+//trash
+js/
+script.js
+css/

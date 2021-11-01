@@ -4,9 +4,10 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width">
         <title>AntiPlagiarism</title>
-        <link href="css/_normalize.css" rel="stylesheet">
-        <link href="css/_zeroing.css" rel="stylesheet">
-        <link href="css/style.css" rel="stylesheet">
+        <link rel="icon" href="favicon.ico" type="image/x-icon">
+        <link href="src/_normalize.css" rel="stylesheet">
+        <link href="src/_zeroing.css" rel="stylesheet">
+        <link href="src/index.css" rel="stylesheet">
     </head>
     <body>
         <div class="wrapper">
@@ -23,22 +24,23 @@
                         <form action="#" class="plagiarism-section__form">
                             <fieldset class="original-text-fieldset">
                                 <div class="original-text__controls form__controls">
-                                    <button class="original-text__controls__button" class="buttonOriginal">Original</button>
-                                    <div class="image-container brain__img">
+                                    <button id="open" class="original-text__controls__button" class="buttonOriginal" type="button">Original</button>
+                                    <div id="image" class="image-container brain__img">
                                         <div id="opacity"></div>
-                                        <img class="img--brain" src="assets/images/form-section/main.png" alt="brain">
+                                        <div id="result"></div>
+                                        <img class="img--brain" src="src/assets/images/form-section/main.png" alt="brain">
                                     </div>
                                 </div>
                                 <div class="original-text-fieldset__textarea">
-                                    <textarea placeholder="Original text"></textarea>
+                                    <textarea id="info" placeholder="Original text"></textarea>
                                 </div>
                             </fieldset>
                             <fieldset class="fragment-text-fieldset">
                                 <div class="fragment-text__controls form__controls">
-                                    <button class="fragment-text__controls__button">Check</button>
+                                    <button id="send" class="fragment-text__controls__button" type="button" disabled>Check</button>
                                 </div>
                                 <div class="fragment-text-fieldset__textarea">
-                                    <textarea placeholder="Input text... textarea 2 rows"></textarea>
+                                    <textarea id="value" placeholder="Input text... textarea 2 rows"></textarea>
                                 </div>
                             </fieldset>
                         </form>
@@ -50,7 +52,7 @@
                     <div class="footer__wrapper">
                         <div class="footer-logo">
                             <a class="footer-logo__link" href="http://devincubator.by/" target="_blank">
-                                <img class="footer-logo__img" src="assets/images/icons/incubator-main.png" alt="Incubator">
+                                <img class="footer-logo__img" src="src/assets/images/icons/incubator-main.png" alt="Incubator">
                             </a>
                             <a class="footer-logo__text" href="http://devincubator.by/" target="_blank">INCUBATOR</a>
                         </div>
@@ -59,17 +61,17 @@
                             <ul class="socials__list">
                                 <li class="socials__item">
                                     <a class="socials__link" href="https://github.com/MrChester/AntiPlagiarism/tree/dev" target="_blank">
-                                        <img class="socials__icon--github" src="assets/images/socials/github.png" alt="github">
+                                        <img class="socials__icon--github" src="src/assets/images/socials/github.png" alt="github">
                                     </a>
                                 </li>
                                 <li class="socials__item">
                                     <a class="socials__link" href="https://vk.com/" target="_blank">
-                                        <img class="socials__icon--vk" src="assets/images/socials/vk.png" alt="vk">
+                                        <img class="socials__icon--vk" src="src/assets/images/socials/vk.png" alt="vk">
                                     </a>
                                 </li>
                                 <li class="socials__item">
                                     <a class="socials__link" href="https://www.facebook.com/" target="_blank">
-                                        <img class="socials__icon--fb" src="assets/images/socials/facebook.png" alt="facebook">
+                                        <img class="socials__icon--fb" src="src/assets/images/socials/facebook.png" alt="facebook">
                                     </a>
                                 </li>
                             </ul>
@@ -78,7 +80,8 @@
                 </div>
             </footer>
         </div>
-        <script src = "js/particles.js"></script>
-        <script src = "js/app.js"></script>
+        <script src = "src/particles.js"></script>
+        <script src = "src/app.js"></script>
+        <script src="src/serverRequest.js"></script>
     </body>
 </html>

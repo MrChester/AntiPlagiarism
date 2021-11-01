@@ -1,51 +1,51 @@
 @font-face {
 	font-family: 'Exo2';
-	src: url('../assets/fonts/exo2/Exo2-Regular.eot');
+	src: url('assets/fonts/exo2/Exo2-Regular.eot');
 	src: local('regular'),
-        url("../assets/fonts/exo2/Exo2-Regular.eot?#iefix") format("embedded-opentype"),
-        url('../assets/fonts/exo2/Exo2-Regular.otf') format('opentype'),
-        url('../assets/fonts/exo2/Exo2-Regular.woff2') format('woff2'),
-        url('../assets/fonts/exo2/Exo2-Regular.ttf') format('truetype'),
-        url('../assets/fonts/exo2/Exo2-Regular.svg') format('svg');
+        url("assets/fonts/exo2/Exo2-Regular.eot?#iefix") format("embedded-opentype"),
+        url('assets/fonts/exo2/Exo2-Regular.otf') format('opentype'),
+        url('assets/fonts/exo2/Exo2-Regular.woff2') format('woff2'),
+        url('assets/fonts/exo2/Exo2-Regular.ttf') format('truetype'),
+        url('assets/fonts/exo2/Exo2-Regular.svg') format('svg');
 	font-weight: 400;
 	font-style: normal;
 }
 
 @font-face {
 	font-family: 'Exo2';
-	src: url('../assets/fonts/exo2/Exo2-Medium.eot');
+	src: url('assets/fonts/exo2/Exo2-Medium.eot');
 	src: local('medium'),
-        url("../assets/fonts/exo2/Exo2-Medium.eot?#iefix") format("embedded-opentype"),
-        url('../assets/fonts/exo2/Exo2-Medium.otf') format('opentype'),
-        url('../assets/fonts/exo2/Exo2-Medium.woff2') format('woff2'),
-        url('../assets/fonts/exo2/Exo2-Medium.ttf') format('truetype'),
-        url('../assets/fonts/exo2/Exo2-Medium.svg') format('svg');
+        url("assets/fonts/exo2/Exo2-Medium.eot?#iefix") format("embedded-opentype"),
+        url('assets/fonts/exo2/Exo2-Medium.otf') format('opentype'),
+        url('assets/fonts/exo2/Exo2-Medium.woff2') format('woff2'),
+        url('assets/fonts/exo2/Exo2-Medium.ttf') format('truetype'),
+        url('assets/fonts/exo2/Exo2-Medium.svg') format('svg');
 	font-weight: 500;
 	font-style: normal;
 }
 
 @font-face {
 	font-family: 'Exo2';
-	src: url('../assets/fonts/exo2/Exo2-Bold.eot');
+	src: url('assets/fonts/exo2/Exo2-Bold.eot');
 	src: local('bold'),
-        url("../assets/fonts/exo2/Exo2-Bold.eot?#iefix") format("embedded-opentype"),
-        url('../assets/fonts/exo2/Exo2-Bold.otf') format('opentype'),
-        url('../assets/fonts/exo2/Exo2-Bold.woff2') format('woff2'),
-        url('../assets/fonts/exo2/Exo2-Bold.ttf') format('truetype'),
-        url('../assets/fonts/exo2/Exo2-Bold.svg') format('svg');
+        url("assets/fonts/exo2/Exo2-Bold.eot?#iefix") format("embedded-opentype"),
+        url('assets/fonts/exo2/Exo2-Bold.otf') format('opentype'),
+        url('assets/fonts/exo2/Exo2-Bold.woff2') format('woff2'),
+        url('assets/fonts/exo2/Exo2-Bold.ttf') format('truetype'),
+        url('assets/fonts/exo2/Exo2-Bold.svg') format('svg');
 	font-weight: 700;
 	font-style: normal;
 }
 
 @font-face {
 	font-family: 'Exo2';
-	src: url('../assets/fonts/exo2/Exo2-ExtraBold.eot');
+	src: url('assets/fonts/exo2/Exo2-ExtraBold.eot');
 	src: local('extrabold'),
-        url("../assets/fonts/exo2/Exo2-ExtraBold.eot?#iefix") format("embedded-opentype"),
-        url('../assets/fonts/exo2/Exo2-ExtraBold.otf') format('opentype'),
-        url('../assets/fonts/exo2/Exo2-ExtraBold.woff2') format('woff2'),
-        url('../assets/fonts/exo2/Exo2-ExtraBold.ttf') format('truetype'),
-        url('../assets/fonts/exo2/Exo2-ExtraBold.svg') format('svg');
+        url("assets/fonts/exo2/Exo2-ExtraBold.eot?#iefix") format("embedded-opentype"),
+        url('assets/fonts/exo2/Exo2-ExtraBold.otf') format('opentype'),
+        url('assets/fonts/exo2/Exo2-ExtraBold.woff2') format('woff2'),
+        url('assets/fonts/exo2/Exo2-ExtraBold.ttf') format('truetype'),
+        url('assets/fonts/exo2/Exo2-ExtraBold.svg') format('svg');
 	font-weight: 800;
 	font-style: normal;
 }
@@ -185,12 +185,34 @@ textarea:-ms-input-placeholder {
     width: 100%;
 }
 
+#image{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
 
+#result{
+    padding: 1rem;
+    width: 100%;
+    text-align: center;
+    color: white;
+    z-index: 9999;
+}
+
+.opacity{
+    background-color: transparent;
+    filter: alpha(opacity=60);
+    -moz-opacity: 0.6;
+    opacity: 0.6;
+}
 
 #opacity{
     position: absolute;
     background-color: #000000;
-    background-image: url(../assets/images/form-section/main.png);
+    background-image: url(assets/images/form-section/main.png);
     background-position: center center;
     background-size: cover;
     border-radius: 10px;
@@ -218,6 +240,11 @@ textarea:-ms-input-placeholder {
     font-size: 1.75em;
     line-height: 1.2;
     color: #ffffff;
+}
+
+#send:disabled {
+    cursor: not-allowed;
+    pointer-events: all !important;
 }
 
 .original-text__controls__button:hover,
