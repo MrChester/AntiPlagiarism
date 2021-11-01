@@ -88,8 +88,8 @@ double antiPlagiarism (string text, string fragment)
     deleteUnions(fragmentArray, unionsArr);
     createShingles(textArray, textShinglesArray);
     createShingles(fragmentArray, fragmentShinglesArray);
-    convertToMD5Hash(textShinglesArray, textHashesArray);
-    convertToMD5Hash(fragmentShinglesArray, fragmentHashesArray);
+    //convertToMD5Hash(textShinglesArray, textHashesArray);
+    //convertToMD5Hash(fragmentShinglesArray, fragmentHashesArray);
 
     int totalShinglesCount = getShinglesAmount(fragmentShinglesArray);
     int coincidencesAmount = calculateCoincidenceNumber(textHashesArray, fragmentHashesArray, totalShinglesCount);
