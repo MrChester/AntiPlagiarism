@@ -10,7 +10,7 @@
 
 using namespace std;
 
-const char separatorArr[] = " .,!?;:-+{}()[]*@%$^&#`~_=<>/|'\"\\";
+const char separatorArr[] = " .,!?;:-+{}()[]*@%$^&#`~_=<>/|'\"\\\\n";
 const char END_OF_CHAR_ARRAY = '\0';
 const string END_OF_STRING = "\0";
 
