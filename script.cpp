@@ -2,6 +2,11 @@
 #include <string>
 #include <stdio.h>
 #include <stdlib.h>
+#include <cstring>
+#include <cmath>
+#include <iomanip>
+#include <sstream>
+#include <vector>
 #include <cgicc/CgiDefs.h>
 #include <cgicc/Cgicc.h>
 #include <cgicc/HTTPHTMLHeader.h>
