@@ -185,7 +185,29 @@ textarea:-ms-input-placeholder {
     width: 100%;
 }
 
+#image{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
 
+#result{
+    padding: 1rem;
+    width: 100%;
+    text-align: center;
+    color: white;
+    z-index: 9999;
+}
+
+.opacity{
+    background-color: transparent;
+    filter: alpha(opacity=60);
+    -moz-opacity: 0.6;
+    opacity: 0.6;
+}
 
 #opacity{
     position: absolute;
@@ -218,6 +240,11 @@ textarea:-ms-input-placeholder {
     font-size: 1.75em;
     line-height: 1.2;
     color: #ffffff;
+}
+
+#send:disabled {
+    cursor: not-allowed;
+    pointer-events: all !important;
 }
 
 .original-text__controls__button:hover,
