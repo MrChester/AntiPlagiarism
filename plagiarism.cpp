@@ -102,26 +102,42 @@ double antiPlagiarism (string text, string fragment)
 int calculateCoincidenceNumber(string text[], string fragment[], int totalShinglesCount)
 {
     int coincidence = 0;
-    int k = 0;
-    for (int i = 0; text[i + totalShinglesCount - 1] != END_OF_STRING; i++)
+    for (int i = 0; fragment[i] != END_OF_STRING; i++)
     {
-        k = i;
-        int temp = 0;
-        for (int j = 0; fragment[j] != END_OF_STRING; j++)
+        for(int j = 0; text[j] != END_OF_STRING; j++)
         {
-            if (fragment[j] == text[k])
+            if(text[j] == fragment[i])
             {
-                temp++;
+                coincidence++;
             }
-            k++;
-        }
-        if (coincidence < temp)
-        {
-            coincidence = temp;
         }
     }
     return coincidence;
 }
+
+// int calculateCoincidenceNumber(string text[], string fragment[], int totalShinglesCount)
+// {
+//     int coincidence = 0;
+//     int k = 0;
+//     for (int i = 0; text[i + totalShinglesCount - 1] != END_OF_STRING; i++)
+//     {
+//         k = i;
+//         int temp = 0;
+//         for (int j = 0; fragment[j] != END_OF_STRING; j++)
+//         {
+//             if (fragment[j] == text[k])
+//             {
+//                 temp++;
+//             }
+//             k++;
+//         }
+//         if (coincidence < temp)
+//         {
+//             coincidence = temp;
+//         }
+//     }
+//     return coincidence;
+// }
 
 void splitIntoWords(string str, string wordsArr[N])
 {
