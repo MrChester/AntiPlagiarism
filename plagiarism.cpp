@@ -14,7 +14,7 @@ const char separatorArr[] = " .,!?;:-+{}()[]*@%$^&#`~_=<>/|'\"\\\\n";
 const char END_OF_CHAR_ARRAY = '\0';
 const string END_OF_STRING = "\0";
 
-#define N 65536
+#define N 8192
 #define NUMBER_UNIONS 15
 #define ASCII_LETTER_DIFFERENCE 32
 #define SHINGLES_AMOUNT 3
@@ -92,7 +92,8 @@ double antiPlagiarism (string text, string fragment)
     //convertToMD5Hash(fragmentShinglesArray, fragmentHashesArray);
 
     int totalShinglesCount = getShinglesAmount(fragmentShinglesArray);
-    int coincidencesAmount = calculateCoincidenceNumber(textHashesArray, fragmentHashesArray, totalShinglesCount);
+    //int coincidencesAmount = calculateCoincidenceNumber(textHashesArray, fragmentHashesArray, totalShinglesCount);
+    int coincidencesAmount = calculateCoincidenceNumber(textShinglesArray, fragmentShinglesArray, totalShinglesCount);
     result = coincidencesAmount * 100.0 / totalShinglesCount;
 
     return result;
