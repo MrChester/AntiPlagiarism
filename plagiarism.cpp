@@ -14,7 +14,7 @@ const char separatorArr[] = " .,!?;:-+{}()[]*@%$^&#`~_=<>/|'\"\\\\n";
 const char END_OF_CHAR_ARRAY = '\0';
 const string END_OF_STRING = "\0";
 
-#define N 2048
+#define N 65536
 #define NUMBER_UNIONS 15
 #define ASCII_LETTER_DIFFERENCE 32
 #define SHINGLES_AMOUNT 3
