@@ -10,7 +10,7 @@
 
 using namespace std;
 
-const char separatorArr[] = " .,!?;:-+{}()[]*@%$^&#`~_=<>/|'\"\\\\n";
+const char separatorArr[] = "\\\n .,!?;:-+{}()[]*@%$^&#`~_=<>/|'\"\\";
 const char END_OF_CHAR_ARRAY = '\0';
 const string END_OF_STRING = "\0";
 
@@ -92,7 +92,6 @@ double antiPlagiarism (string text, string fragment)
     //convertToMD5Hash(fragmentShinglesArray, fragmentHashesArray);
 
     int totalShinglesCount = getShinglesAmount(fragmentShinglesArray);
-    //int coincidencesAmount = calculateCoincidenceNumber(textHashesArray, fragmentHashesArray, totalShinglesCount);
     int coincidencesAmount = calculateCoincidenceNumber(textShinglesArray, fragmentShinglesArray, totalShinglesCount);
     result = coincidencesAmount * 100.0 / totalShinglesCount;
 
@@ -109,35 +108,12 @@ int calculateCoincidenceNumber(string text[], string fragment[], int totalShingl
             if(text[j] == fragment[i])
             {
                 coincidence++;
+                break;
             }
         }
     }
     return coincidence;
 }
-
-// int calculateCoincidenceNumber(string text[], string fragment[], int totalShinglesCount)
-// {
-//     int coincidence = 0;
-//     int k = 0;
-//     for (int i = 0; text[i + totalShinglesCount - 1] != END_OF_STRING; i++)
-//     {
-//         k = i;
-//         int temp = 0;
-//         for (int j = 0; fragment[j] != END_OF_STRING; j++)
-//         {
-//             if (fragment[j] == text[k])
-//             {
-//                 temp++;
-//             }
-//             k++;
-//         }
-//         if (coincidence < temp)
-//         {
-//             coincidence = temp;
-//         }
-//     }
-//     return coincidence;
-// }
 
 void splitIntoWords(string str, string wordsArr[N])
 {
