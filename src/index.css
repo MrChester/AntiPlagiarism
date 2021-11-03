@@ -50,6 +50,11 @@
 	font-style: normal;
 }
 
+* {
+    transition: all 0.2s linear;
+    scroll-behavior: smooth;
+}
+
 html, body {
     min-height: 100%;
     width: 100%;
@@ -101,6 +106,7 @@ textarea:-ms-input-placeholder {
 .wrapper{
     min-height: 100%;
     position: relative;
+    padding: 30px 0 46px 0;
 }
 
 .header {
@@ -310,6 +316,7 @@ textarea:-ms-input-placeholder {
 }
 
 .copyrights{
+    min-width: 210px;
     font-family: 'Exo2', Arial, Helvetica, sans-serif;
     font-weight: 700;
     font-size: 1.5em;
@@ -334,7 +341,7 @@ textarea:-ms-input-placeholder {
     cursor: pointer;
 }
 
-@media only screen and (min-width : 320px) and (max-width : 644px) {
+@media only screen and (max-width : 644px) {
     .header{
         margin-bottom: 40px;
     }
@@ -386,29 +393,54 @@ textarea:-ms-input-placeholder {
         margin-bottom: 0;
     }
 
+    .footer__wrapper{
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .footer-logo,
+    .copyrights{
+        margin-bottom: 15px;
+    }
+}
+
+@media only screen and (min-width : 320px)
+and (max-width : 473px)
+{
+    .wrapper{
+        padding-bottom: 40px;
+    }
+    .plagiarism-section__form{
+        margin-bottom: 81px;
+    }
+
     .footer{
         text-align: center;
     }
 
     .footer-logo,
     .copyrights{
-        margin-right: 20px;
-    }
-    .footer-logo,
-    .copyrights{
-        margin-bottom: 15px;
-    }
-    .footer__wrapper{
-        align-items: center;
-        justify-content: center;
-        flex-wrap: wrap;
+        margin-bottom: 11px;
     }
 }
 
-@media only screen and (min-width : 320px)
-and (max-width : 480px){
-    .footer-logo,
-    .copyrights{
-        margin-bottom: 11px;
+@media only screen and (min-width : 474px)
+and (max-width : 644px){
+    .wrapper{
+        padding-bottom: 40px;
+    }
+
+    .plagiarism-section__form{
+        margin-bottom: 96px;
+    }
+    .footer-logo{
+        margin-right: 5%;
+    }
+}
+
+@media only screen and (max-width : 474px){
+    .wrapper{
+        min-width: 320px;
     }
 }
