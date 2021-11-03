@@ -51,7 +51,7 @@
 }
 
 html, body {
-    height: 100%;
+    min-height: 100%;
     width: 100%;
     margin: 0px;
     padding: 0px;
@@ -99,6 +99,7 @@ textarea:-ms-input-placeholder {
 }
 
 .wrapper{
+    min-height: 100%;
     position: relative;
 }
 
